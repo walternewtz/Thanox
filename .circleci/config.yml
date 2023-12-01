@@ -30,9 +30,9 @@ jobs:
       - checkout
       - run: echo "Git checkout complete"
 
-      - run: git submodule sync
-      - run: git submodule update --init --recursive --jobs 8
-      - run: echo "Git submodule update complete"
+#      - run: git submodule sync
+ #     - run: git submodule update --init --recursive --jobs 8
+  #    - run: echo "Git submodule update complete"
       
       - run: openssl enc -aes-256-cbc -d -K $KEY_STORE_K -iv $KEYSTORE_IV -in android/environment/keys/android-key-enc -out android/environment/keys/android.jks
 
