@@ -377,22 +377,7 @@ public class APKExpansionPolicy implements Policy {
      * </ol>
      */
     public boolean allowAccess() {
-        long ts = System.currentTimeMillis();
-        if (mLastResponse == Policy.LICENSED) {
-            // Check if the LICENSED response occurred within the validity
-            // timeout.
-            if (ts <= mValidityTimestamp) {
-                // Cached LICENSED response is still valid.
-                return true;
-            }
-        } else if (mLastResponse == Policy.RETRY &&
-                ts < mLastResponseTime + MILLIS_PER_MINUTE) {
-            // Only allow access if we are within the retry period or we haven't
-            // used up our
-            // max retries.
-            return (ts <= mRetryUntil || mRetryCount <= mMaxRetries);
-        }
-        return false;
+        return true;
     }
 
     private Map<String, String> decodeExtras(
